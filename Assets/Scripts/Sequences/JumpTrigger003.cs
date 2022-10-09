@@ -11,8 +11,9 @@ public class JumpTrigger003 : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        print("lol");
         this.GetComponent<BoxCollider>().enabled = false;
-        doorToOpen.GetComponent<Animation>().Play("DoorWithZompieOpen");
+        doorToOpen.GetComponent<Animation>().Play("DoorWithZombieAnim");
         doorBangSfx.Play();
         zombie.SetActive(true);
         StartCoroutine(PlayJumpMusic());

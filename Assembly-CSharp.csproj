@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\Sequences\Opening001.cs" />
      <Compile Include="Assets\Scripts\DoorCellOpen.cs" />
      <Compile Include="Assets\Scripts\FirePistol.cs" />
+     <Compile Include="Assets\Scripts\ZombieDeath.cs" />
+     <Compile Include="Assets\Scripts\ZombieMovement.cs" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Unity\2020.3.35f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

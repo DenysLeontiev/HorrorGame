@@ -9,7 +9,7 @@ public class FirePistol : MonoBehaviour
     public AudioSource fireSfx;
     bool isFiring = false;
     public float targetDistance;
-    public int zombieDamage;
+    public int zombieDamage = 5;
 
     void Update()
     {
@@ -29,8 +29,7 @@ public class FirePistol : MonoBehaviour
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
         {
             targetDistance = hit.distance;
-            hit.transform.SendMessage("DamageZombie", zombieDamage, SendMessageOptions.DontRequireReceiver);
-            print(hit.transform.name);
+            hit.transform.SendMessage("TakeDamage", zombieDamage, SendMessageOptions.DontRequireReceiver);
         }
         muzzleFlash.SetActive(true);
         fireSfx.Play();
