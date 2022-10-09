@@ -42,18 +42,19 @@
      <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
      <Compile Include="Assets\Scripts\FlameAnimatons.cs" />
      <Compile Include="Assets\Scripts\Sequences\JumpTrigger003.cs" />
+     <Compile Include="Assets\Scripts\ZombieDeath.cs" />
      <Compile Include="Assets\Scripts\Sequences\FirstTrigger002.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PickUpPistol.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
      <Compile Include="Assets\Scripts\PlayerCasting.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
+     <Compile Include="Assets\Scripts\ZombieMovement.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\Scripts\Sequences\Opening001.cs" />
-     <Compile Include="Assets\Scripts\DoorCellOpen.cs" />
      <Compile Include="Assets\Scripts\FirePistol.cs" />
-     <Compile Include="Assets\Scripts\ZombieDeath.cs" />
-     <Compile Include="Assets\Scripts\ZombieMovement.cs" />
+     <Compile Include="Assets\Scripts\DoorCellOpen.cs" />
+     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Unity\2020.3.35f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
