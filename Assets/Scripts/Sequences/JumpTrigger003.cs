@@ -9,12 +9,19 @@ public class JumpTrigger003 : MonoBehaviour
     public AudioSource doorBangSfx;
     public AudioSource doorJumpMusic;
 
+    public AudioSource ambientMusic;
+
+    void Start()
+    {
+        
+    }
+
     void OnTriggerEnter()
     {
-        print("lol");
         this.GetComponent<BoxCollider>().enabled = false;
         doorToOpen.GetComponent<Animation>().Play("DoorWithZombieAnim");
         doorBangSfx.Play();
+        ambientMusic.Pause();
         zombie.SetActive(true);
         StartCoroutine(PlayJumpMusic());
     }

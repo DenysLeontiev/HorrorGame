@@ -11,11 +11,18 @@ public class FirePistol : MonoBehaviour
     public float targetDistance;
     public int zombieDamage = 5;
 
+    GlobalAmmo globalAmmo;
+
+    void Start()
+    {
+        globalAmmo = FindObjectOfType<GlobalAmmo>();
+    }
+
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if(isFiring == false)
+            if(isFiring == false && GlobalAmmo.AmmoCount > 0)
             {
                 StartCoroutine(FiringPistol());
             }
@@ -24,6 +31,7 @@ public class FirePistol : MonoBehaviour
 
     IEnumerator FiringPistol()
     {
+        GlobalAmmo.Shoot();
         isFiring = true;
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))

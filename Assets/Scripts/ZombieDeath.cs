@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class ZombieDeath : MonoBehaviour
 {
     public int enemyHealth = 25;
+
+    [SerializeField] AudioSource ambientMusic;
+    [SerializeField] AudioSource jumpMusic;
     Animator animator;
     NavMeshAgent navMeshAgent;
 
@@ -19,19 +22,22 @@ public class ZombieDeath : MonoBehaviour
     {
         if(enemyHealth <= 0)
         {
+            animator.SetTrigger("die");
             Die();
         }
     }
 
     private void Die()
     {
-        animator.SetTrigger("die");
+        ambientMusic.Play();
+        jumpMusic.Stop();
+        GetComponent<ZombieMovement>().enabled = false;
         this.GetComponent<CapsuleCollider>().enabled = false;
         // GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         navMeshAgent.isStopped = true;
         // navMeshAgent.enabled = false;
         // this.enabled = false;
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 1.78f);
     }
 
     public void TakeDamage(int zombieDamage)

@@ -7,6 +7,11 @@ public class ZombieMovement : MonoBehaviour
 {
     [SerializeField] GameObject target;
     NavMeshAgent meshAgent;
+    [SerializeField] int zombieDamage = 5;
+    [SerializeField] AudioSource hurtSFX001;
+    [SerializeField] AudioSource hurtSFX002;
+    [SerializeField] AudioSource hurtSFX003;
+    
 
     void Start()
     {
@@ -28,12 +33,37 @@ public class ZombieMovement : MonoBehaviour
             }
             else
             {
-                GetComponent<Animator>().SetBool("attack", true);
-
-                meshAgent.isStopped = true;
-                speed = 0;
+                Attack();
+                // StartCoroutine(HitPlayer(zombieDamage));
+                // speed = 0;
             }
         }
+    }
+
+    public void HitPlayer(int damage)  // Animation Event(REAL ONE!!!!)
+    {
+        target.GetComponent<PlayerHealth>().DamagePlayer(zombieDamage);
+
+        int randomHitSFX = Random.Range(1,4);
+        print(randomHitSFX);
+        if(randomHitSFX == 1)
+        {
+            hurtSFX001.Play();
+        }
+        else if(randomHitSFX == 2)
+        {
+            hurtSFX002.Play();
+        }
+        else if(randomHitSFX == 3)
+        {
+            hurtSFX003.Play();
+        }
+    }
+
+    private void Attack()
+    {
+        GetComponent<Animator>().SetBool("attack", true);
+        meshAgent.isStopped = true;
     }
 
     private float GetLocalSpeed()

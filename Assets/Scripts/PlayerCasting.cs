@@ -7,6 +7,11 @@ public class PlayerCasting : MonoBehaviour
     public static float distanceFromTarget;
     public float toTarget;
     
+    [SerializeField] AudioSource ambinetMusic;
+    void Start()
+    {
+        ambinetMusic.Play();
+    }
 
     void Update()
     {
