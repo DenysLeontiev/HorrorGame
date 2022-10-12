@@ -10,6 +10,8 @@ public class FirstTrigger002 : MonoBehaviour
     public GameObject textBox;
     public GameObject theMarker;
 
+    [SerializeField] AudioSource pistolOnTheTableSFX;
+
     bool isTriggered = false;
 
     void OnTriggerEnter()
@@ -24,6 +26,7 @@ public class FirstTrigger002 : MonoBehaviour
 
     IEnumerator ScenePlayer()
     {
+        pistolOnTheTableSFX.Play();
         textBox.GetComponent<Text>().text = "Ойойой!Пістолет на столі,damn!";
         yield return new WaitForSeconds(2.5f);
         textBox.GetComponent<Text>().text = "";

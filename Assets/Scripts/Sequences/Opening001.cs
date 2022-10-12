@@ -9,6 +9,8 @@ public class Opening001 : MonoBehaviour
     public GameObject fadeInScreen;
     public GameObject textBox;
 
+    [SerializeField] AudioSource voiceIntro;
+
     void Start()
     {
         thePlayer.GetComponent<FirstPersonController>().enabled = false;
@@ -19,6 +21,7 @@ public class Opening001 : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         fadeInScreen.SetActive(false);
+        voiceIntro.Play();
         textBox.GetComponent<Text>().text = "Мені потрібно вибратися звідси!";
         yield return new WaitForSeconds(2f);
         textBox.GetComponent<Text>().text = "";
