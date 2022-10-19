@@ -36,8 +36,16 @@ public class FirePistol : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
         {
-            targetDistance = hit.distance;
-            hit.transform.SendMessage("TakeDamage", zombieDamage, SendMessageOptions.DontRequireReceiver);
+            // if(hit.transform.tag != "Breakable")
+            // {
+                targetDistance = hit.distance;
+                hit.transform.SendMessage("TakeDamage", zombieDamage, SendMessageOptions.DontRequireReceiver);
+            // }
+            
+            if(hit.transform.tag == "Breakable")
+            {
+                hit.transform.GetComponent<BreakAbleObject>().breakableIsHit = true;
+            }
         }
         muzzleFlash.SetActive(true);
         fireSfx.Play();

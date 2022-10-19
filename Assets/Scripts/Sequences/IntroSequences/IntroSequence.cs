@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroSequence : MonoBehaviour
@@ -17,6 +18,9 @@ public class IntroSequence : MonoBehaviour
     [SerializeField] AudioSource line05;
 
     [SerializeField] AudioSource line06;
+
+    [SerializeField] GameObject blackScreen;
+    [SerializeField] AudioSource smashSound;
 
 
     void Start()
@@ -50,4 +54,10 @@ public class IntroSequence : MonoBehaviour
         subtitles.GetComponent<Text>().text = "І я зрозумів,це був тільки початок...";
         yield return new WaitForSeconds(3f);
         subtitles.GetComponent<Text>().text = "";
+        yield return new WaitForSeconds(13f);
+        smashSound.Play();
+        blackScreen.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+}

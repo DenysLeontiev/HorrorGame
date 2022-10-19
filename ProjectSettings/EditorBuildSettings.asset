@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 6a622efdd60634e41aaa7786b49ff95c
   - enabled: 1
+    path: Assets/Scenes/Terrain.unity
+    guid: 8c5db5905fdc14a40827f73223cb1491
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 5191654ff21508e49a2e4183f69606f4
   - enabled: 1
-    path: Assets/Scenes/Terrain.unity
-    guid: 8c5db5905fdc14a40827f73223cb1491
+    path: Assets/Scenes/Mansion.unity
+    guid: fe85c4c6a919d4b49b46430993be7f08
   m_configObjects: {}

@@ -26,6 +26,6 @@ public class SceneSwitcher : MonoBehaviour
     {
         fadeOutScreen.SetActive(true);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(3); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 }

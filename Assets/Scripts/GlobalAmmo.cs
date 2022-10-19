@@ -25,7 +25,8 @@ public class GlobalAmmo : MonoBehaviour
     void Update()
     {
         ammoCountToShowInInspector = ammoCount;
-        ammoText.GetComponent<Text>().text = ammoCount.ToString();
+        if(ammoText != null)
+            ammoText.GetComponent<Text>().text = ammoCount.ToString();
     }
 
     public static void Shoot()

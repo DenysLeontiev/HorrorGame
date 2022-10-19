@@ -43,9 +43,11 @@
      <Compile Include="Assets\Scripts\FlameAnimatons.cs" />
      <Compile Include="Assets\Scripts\GlobalAmmo.cs" />
      <Compile Include="Assets\Scripts\Sequences\JumpTrigger003.cs" />
+     <Compile Include="Assets\Scripts\Sequences\IntroSequences\IntroSequence.cs" />
      <Compile Include="Assets\Scripts\ZombieDeath.cs" />
      <Compile Include="Assets\Scripts\AmmoPickUp.cs" />
      <Compile Include="Assets\Scripts\Menus\SceneSwitcher.cs" />
+     <Compile Include="Assets\Scripts\DoorCellNextScene.cs" />
      <Compile Include="Assets\Scripts\Sequences\FirstTrigger002.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PickUpPistol.cs" />
@@ -57,8 +59,11 @@
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\Scripts\Sequences\Opening001.cs" />
      <Compile Include="Assets\Scripts\FirePistol.cs" />
+     <Compile Include="Assets\Scripts\NotePickup.cs" />
      <Compile Include="Assets\Scripts\DoorCellOpen.cs" />
-     <Compile Include="Assets\Scripts\Sequences\IntroSequences\IntroSequence.cs" />
+     <Compile Include="Assets\Western Props\Scripts\Destructible.cs" />
+     <Compile Include="Assets\Scripts\BreakAbleObject.cs" />
+     <None Include="Assets\MyObjects\western-props-pack\README.txt" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
      <None Include="Assets\BlackantMasterStudio\The Shed\Shed_Anims.txt" />
     <Reference Include="UnityEngine">

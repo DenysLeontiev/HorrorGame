@@ -37,13 +37,13 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   mode:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 0.84
+    value: 0.72
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -112,10 +112,10 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   intensity:
     overrideState: 1
-    value: 15
+    value: 5
   threshold:
     overrideState: 1
     value: 5
@@ -124,16 +124,16 @@ MonoBehaviour:
     value: 0.14
   clamp:
     overrideState: 1
-    value: 65472
+    value: 0
   diffusion:
     overrideState: 1
     value: 7
   anamorphicRatio:
     overrideState: 1
-    value: 0
+    value: -0.046
   color:
     overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 0.8396226, g: 0.55760103, b: 0.027723404, a: 1}
   fastMode:
     overrideState: 1
     value: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   gradingMode:
     overrideState: 1
     value: 1
@@ -192,10 +192,10 @@ MonoBehaviour:
     value: 3
   toneCurveToeStrength:
     overrideState: 1
-    value: 0.131
+    value: 0.956
   toneCurveToeLength:
     overrideState: 1
-    value: 0.5
+    value: 0
   toneCurveShoulderStrength:
     overrideState: 1
     value: 1
@@ -220,7 +220,7 @@ MonoBehaviour:
     value: 7.1
   tint:
     overrideState: 1
-    value: 0
+    value: 12.2
   colorFilter:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -1530,7 +1530,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.2
+    value: 0.229
   smoothness:
     overrideState: 1
     value: 1
