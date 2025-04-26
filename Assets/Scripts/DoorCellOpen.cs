@@ -14,53 +14,82 @@ public class DoorCellOpen : MonoBehaviour
 
     [SerializeField] bool isOpened = false;
 
+    [SerializeField] bool isDoorWithKey = false;
+    [SerializeField] AudioSource lockedDoorSFX;
+    [SerializeField] GameObject closedDoorText;
+    [SerializeField] AudioSource closedDoorVoice;
+
+    public bool IsDoorWithKey
+    {
+        get
+        {
+            return IsDoorWithKey;
+        }
+        set
+        {
+            isDoorWithKey = value;
+        }
+    }
+
+    GameObject player;
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
+
     void Update()
     {
         theDistance = PlayerCasting.distanceFromTarget;
+
+        RaycastHit hit;
+        bool isHit = Physics.Raycast(player.transform.position, player.transform.forward, out hit);
+
+        if(isDoorWithKey && isHit && Vector3.Distance(player.transform.position, transform.position) < 1.75f)
+        {
+            ActionKey.GetComponent<Text>().text = "[ E ]";
+            ActionKey.SetActive(true);
+        }
+    }
+
+    IEnumerator ClosedDoor()
+    {
+        lockedDoorSFX.Play();
+        closedDoorVoice.Play();
+        closedDoorText.SetActive(true);
+        ActionText.GetComponent<Text>().text = "Двері закриті,потрібен ключ";
+        yield return new WaitForSeconds(1.2f);
+        closedDoorText.SetActive(false);
     }
 
     void OnMouseOver()  // when we are looking at the door
     {
         if(!isOpened)
         {
-            if(theDistance <= 2f)
-            {
-                foreach (RawImage rawImage in ExtraCross.GetComponentsInChildren<RawImage>())
-                {
-                    rawImage.color = Color.green;
-                }
-                ExtraCross.SetActive(true);
-                ActionKey.SetActive(true);
-                ActionText.GetComponent<Text>().text = "To open the door";
-                ActionText.SetActive(true);
-            }
 
-            if(Input.GetButtonDown("Action"))
+            if(isDoorWithKey && Input.GetButtonDown("Action"))
             {
-                if(theDistance <= 2f)
-                {
-                    isOpened = true;
-                    ActionKey.SetActive(false);
-                    ActionText.SetActive(false);
-                    theDoorToRotate.GetComponent<Animation>().Play("FirstDoorOpenAnim");
-                    creakSound.Play();
-                }
+                StartCoroutine(ClosedDoor());
+                // lockedDoorSFX.Play();
+            }
+            // OpenDoor();
+
+            if(!isDoorWithKey)
+            {
+                OpenDoor();
             }
         }
         else
         {
-            print("else");
             if(theDistance <= 2f)
             {
-                print("first if");
                 foreach (RawImage rawImage in ExtraCross.GetComponentsInChildren<RawImage>())
                 {
                     rawImage.color = Color.green;
                 }
                 ExtraCross.SetActive(true);
-                ActionKey.GetComponent<Text>().text = "[E]";
+                ActionKey.GetComponent<Text>().text = "[ E ]";
                 ActionKey.SetActive(true);
-                ActionText.GetComponent<Text>().text = "To close the door";
+                ActionText.GetComponent<Text>().text = "Зачинити двері";
                 ActionText.SetActive(true);
             }
 
@@ -69,13 +98,39 @@ public class DoorCellOpen : MonoBehaviour
                 print("Action");
                 if(theDistance <= 2f)
                 {
-                    print("secondIf");
                     isOpened = false;
                     ActionKey.SetActive(false);
                     ActionText.SetActive(false);
                     theDoorToRotate.GetComponent<Animation>().Play("FirstDoorCloseAnim");
                     creakSound.Play();
                 }
+            }
+        }
+    }
+
+    private void OpenDoor()
+    {
+        if (theDistance <= 2f)
+        {
+            foreach (RawImage rawImage in ExtraCross.GetComponentsInChildren<RawImage>())
+            {
+                rawImage.color = Color.green;
+            }
+            ExtraCross.SetActive(true);
+            ActionKey.SetActive(true);
+            ActionText.GetComponent<Text>().text = "Відчинити двері";
+            ActionText.SetActive(true);
+        }
+
+        if (Input.GetButtonDown("Action"))
+        {
+            if (theDistance <= 2f)
+            {
+                isOpened = true;
+                ActionKey.SetActive(false);
+                ActionText.SetActive(false);
+                theDoorToRotate.GetComponent<Animation>().Play("FirstDoorOpenAnim");
+                creakSound.Play();
             }
         }
     }

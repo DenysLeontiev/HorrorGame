@@ -1,11 +1,10 @@
+using System.Net.Mime;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
-#pragma warning disable 618
-[RequireComponent(typeof (Image))]
+[RequireComponent(typeof (Text))]
 public class ForcedReset : MonoBehaviour
 {
     private void Update()
@@ -14,7 +13,7 @@ public class ForcedReset : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("ResetObject"))
         {
             //... reload the scene
-            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+            Application.LoadLevelAsync(Application.loadedLevelName);
         }
     }
 }

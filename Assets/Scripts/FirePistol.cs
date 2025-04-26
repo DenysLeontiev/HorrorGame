@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FirePistol : MonoBehaviour
 {
+    [SerializeField] GameObject shootPosition;
+
     public GameObject muzzleFlash;
     public GameObject theGun;
     public AudioSource fireSfx;
@@ -34,12 +36,17 @@ public class FirePistol : MonoBehaviour
         GlobalAmmo.Shoot();
         isFiring = true;
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
+        if(Physics.Raycast(transform.position, shootPosition.transform.forward, out hit))
         {
+            print(hit.transform.name);
             // if(hit.transform.tag != "Breakable")
             // {
                 targetDistance = hit.distance;
                 hit.transform.SendMessage("TakeDamage", zombieDamage, SendMessageOptions.DontRequireReceiver);
+                if(hit.transform.GetComponent<BossHealth>() != null)
+                {
+                    hit.transform.GetComponent<BossHealth>().TakeDamageFromBoss(5);
+                }
             // }
             
             if(hit.transform.tag == "Breakable")

@@ -36,6 +36,7 @@ public class GlobalAmmo : MonoBehaviour
 
     public static void PickUpAmmo(int value)
     {
-        ammoCount = value;
+        print("ammo");
+        ammoCount += value;
     }
 }

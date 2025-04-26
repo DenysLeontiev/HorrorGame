@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2957829176140693787}
   - component: {fileID: 2980793146500768030}
   - component: {fileID: 2980793146500768031}
+  - component: {fileID: 1812343777}
   m_Layer: 0
   m_Name: Wooden Crate
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2980936635933591211}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.3402953, y: 0.3887951, z: 9.646671}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
@@ -112,3 +113,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1812343777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980936635933591211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b81635f61e2781409ff8ad458429eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakAbleObject: {fileID: 9087604765248415104, guid: 73888c889adcc94439e3c5fd9281e895, type: 3}
+  breakBoxSFX: {fileID: 0}
+  breakBottleSFX: {fileID: 0}
+  breakableIsHit: 0
+  isBottle: 0
+  isKeyInThere: 1
+  keyToSpawn: {fileID: 0}
+  keySpawnPosY: 0.3

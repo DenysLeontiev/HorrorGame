@@ -11,6 +11,8 @@ public class ZombieMovement : MonoBehaviour
     [SerializeField] AudioSource hurtSFX001;
     [SerializeField] AudioSource hurtSFX002;
     [SerializeField] AudioSource hurtSFX003;
+
+    [SerializeField] CameraShake cameraShake;
     
 
     void Start()
@@ -42,10 +44,11 @@ public class ZombieMovement : MonoBehaviour
 
     public void HitPlayer(int damage)  // Animation Event(REAL ONE!!!!)
     {
+        StartCoroutine(cameraShake.ShakeCamera(0.15f,0.6f));
+
         target.GetComponent<PlayerHealth>().DamagePlayer(zombieDamage);
 
         int randomHitSFX = Random.Range(1,4);
-        print(randomHitSFX);
         if(randomHitSFX == 1)
         {
             hurtSFX001.Play();
@@ -62,6 +65,7 @@ public class ZombieMovement : MonoBehaviour
 
     private void Attack()
     {
+
         GetComponent<Animator>().SetBool("attack", true);
         meshAgent.isStopped = true;
     }

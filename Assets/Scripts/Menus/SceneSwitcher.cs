@@ -8,11 +8,23 @@ public class SceneSwitcher : MonoBehaviour
 {
     [SerializeField] AudioSource buttonHitSfx;
     [SerializeField] GameObject fadeOutScreen;
+    public GameObject loadButton;
+    public int currentGameSaveIndex = 0;
+
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+
+        currentGameSaveIndex = PlayerPrefs.GetInt("AutoSave");
+        if(currentGameSaveIndex > 0)
+        {
+            loadButton.SetActive(true);
+        }
+    }
 
     public void GoToPlaymode()
     {
-        buttonHitSfx.Play();
-        StartCoroutine(FadeOutScreen());
+        StartCoroutine(FadeOutScreen(1));
     }
 
     public void QuitGame()
@@ -22,10 +34,16 @@ public class SceneSwitcher : MonoBehaviour
         print("Quit");
     }
 
-    IEnumerator FadeOutScreen()
+    public void LoadGame()
     {
+        StartCoroutine(FadeOutScreen(currentGameSaveIndex));
+    }
+
+    IEnumerator FadeOutScreen(int sceneIndex)
+    {
+        buttonHitSfx.Play();
         fadeOutScreen.SetActive(true);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+        SceneManager.LoadScene(sceneIndex); 
     }
 }

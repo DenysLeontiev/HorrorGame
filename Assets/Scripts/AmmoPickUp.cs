@@ -9,9 +9,10 @@ public class AmmoPickUp : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            print("test ammo");
             this.gameObject.SetActive(false);
             panelToDisplayAmmo.SetActive(true);
-            GlobalAmmo.PickUpAmmo(5);
+            GlobalAmmo.PickUpAmmo(8);
         }
     }
 }
