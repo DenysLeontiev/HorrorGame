@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Note
   - Breakable
+  - RealNote
+  - LampDropSound
+  - FlashLightTrigger
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Weapons
+  - PickUps
   - 
   - 
   - 
